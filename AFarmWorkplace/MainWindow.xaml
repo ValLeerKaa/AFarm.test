@@ -1,0 +1,59 @@
+﻿<Window x:Class="AFarmWorkplace.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AFarmWorkplace"
+        mc:Ignorable="d"
+        Title="АналитФАРМАЦИЯ Тестовое задание (Позднев В.Ю.)" Height="464.826" Width="644.723">
+    <Grid Margin="10,10,2,5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="StatusLabel" Content="Label" HorizontalAlignment="Left" Margin="11,383,0,0" VerticalAlignment="Top" Width="109" Height="34" RenderTransformOrigin="0.529,0.566"/>
+        <TextBox x:Name="SearchTextBox" HorizontalAlignment="Left" Height="33" Margin="11,350,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="596" RenderTransformOrigin="0.512,1.292"/>
+        <Button x:Name="SearchButton" Content="Поиск" HorizontalAlignment="Left" Margin="532,388,0,0" VerticalAlignment="Top" Width="75" Click="SearchButton_Click" RenderTransformOrigin="0.52,4.914" Height="22"/>
+        <DataGrid x:Name="dataGrid" Height="113" Margin="10,193,18,0" VerticalAlignment="Top"
+                  AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding ProductID}" Header="Индекс товара" Width="0.15*"/>
+                <DataGridTextColumn Binding="{Binding ProductName}" Header="Наименование товара" Width="0.2*"/>
+                <DataGridTextColumn Binding="{Binding Quantity}" Header="Количество на складе" Width="0.18*"/>
+                <DataGridTextColumn Binding="{Binding ProductPrice}" Header="Цена за ед." Width="0.1*"/>
+
+                <DataGridTemplateColumn Width="0.1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_Add_Click">Добавить</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="ChkButton" Content="Чек" HorizontalAlignment="Left" Margin="532,141,0,0" VerticalAlignment="Top" Width="75" Click="ChkButton_Click" Height="22"/>
+        <DataGrid x:Name="CheckGrid" HorizontalAlignment="Left" Height="100" Margin="10,36,0,0" VerticalAlignment="Top" Width="597"
+                  AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding Product.ProductID}" Header="Индекс товара" Width="0.15*"/>
+                <DataGridTextColumn Binding="{Binding Product.ProductName}" Header="Наименование товара" Width="0.2*"/>
+                <DataGridTextColumn Binding="{Binding BuyCount}" Header="Покупаемое количество" Width="0.18*"/>
+                <DataGridTextColumn Binding="{Binding Sum}" Header="Цена за лот" Width="0.1*"/>
+
+                <DataGridTemplateColumn Width="0.1*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="Button_RM_Click">Убрать</Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label x:Name="label" Content="Поиск товара по названию:" HorizontalAlignment="Left" Margin="18,314,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="Чек:" HorizontalAlignment="Left" Margin="11,5,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label2" Content="Стоимость покупки:" HorizontalAlignment="Left" Height="31" Margin="312,139,0,0" VerticalAlignment="Top" Width="121"/>
+        <Label x:Name="SumCounter" Content="0" HorizontalAlignment="Left" Margin="438,141,0,0" VerticalAlignment="Top" Width="89"/>
+
+    </Grid>
+</Window>
