@@ -27,7 +27,7 @@ namespace CommonLib
             protected override void Seed(DBClass context)
             {
                 context.Products.Add(new Product { ProductID = 1, ProductName = "Мороженое", ProductPrice = 10, Quantity = 5 });
-                context.Products.Add(new Product { ProductID = 2, ProductName = "Пироженое", ProductPrice = 12, Quantity = 4 });
+                context.Products.Add(new Product { ProductID = 2, ProductName = "Пирожное", ProductPrice = 12, Quantity = 4 });
                 context.SaveChanges();
             }
              
